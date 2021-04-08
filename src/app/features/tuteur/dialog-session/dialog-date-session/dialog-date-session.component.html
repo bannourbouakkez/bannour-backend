@@ -1,0 +1,126 @@
+
+<!--
+<br>{{formData | json }}<br>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input type="hidden"  name="SessionID" #DateID="ngModel" [(ngModel)]="formData.SessionID">
+  <input type="hidden"  name="DateID" #DateID="ngModel" [(ngModel)]="formData.date_id">
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>start</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">$</div>
+        </div>
+
+
+        <label>
+          timeStart:
+          <input  [owlDateTime]="dt1" name="timeStart" [(ngModel)]="formData.timeStart" 
+          (dateTimeInput)="setTimeStart($event)"
+          [min]="mydate" [max]="mydatemax" >
+          <span class="trigger" [owlDateTimeTrigger]="dt1">
+              D
+          </span>
+          <owl-date-time #dt1 [startAt]="mydate"></owl-date-time>
+       </label>
+
+
+      </div>
+    </div>
+
+      <label>
+        timeEnd:
+        <input [owlDateTime]="dt2" name="timeEnd" #timeEnd="ngModel" [(ngModel)]="formData.timeEnd" 
+        (dateTimeInput)="setTimeEnd($event)" 
+        [min]="mydate" [max]="mydatemax" >
+        <span class="trigger" [owlDateTimeTrigger]="dt2" > 
+            D
+        </span>
+        <owl-date-time #dt2 [startAt]="mydate"></owl-date-time>
+     </label>
+
+   
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+    <button type="button" class="btn btn-outline-dark ml-1" mat-dialog-close><i class="fa fa-close"></i> Close</button>
+  </div>
+</form>
+-->
+
+
+
+
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input type="hidden"  name="SessionID" #DateID="ngModel" [(ngModel)]="formData.SessionID">
+  <input type="hidden"  name="DateID" #DateID="ngModel" [(ngModel)]="formData.date_id">
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+     
+        <div class=" input-group date col-md-12 p-1-0">
+          <input  [owlDateTime]="dt1" name="timeStart" [(ngModel)]="formData.timeStart" 
+          (dateTimeInput)="setTimeStart($event)"
+          [min]="mydate" [max]="mydatemax" readonly>
+          <!--<owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>-->
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <i class='icon-container'>
+                <!--<i class="pg-icon">calendar</i>-->
+                
+                <span class="trigger" [owlDateTimeTrigger]="dt1">
+                  
+                  <img src="../../../../../assets/calendar.png">
+                </span>
+                <owl-date-time #dt1 [startAt]="mydate"></owl-date-time>
+              </i>
+            </span>
+          </div>
+        </div>
+
+
+    
+      
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+
+        <div class="input-group date col-md-12 p-1-0">
+          <input [owlDateTime]="dt2" name="timeEnd" #timeEnd="ngModel" [(ngModel)]="formData.timeEnd" 
+        (dateTimeInput)="setTimeEnd($event)" 
+        [min]="mydate" [max]="mydatemax" readonly>
+          <!--<owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>-->
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <i class='icon-container'>
+                <!--<i class="pg-icon">calendar</i>-->
+                <span class="trigger" [owlDateTimeTrigger]="dt2" > 
+                  <img src="../../../../../assets/calendar.png">
+              </span>
+              <owl-date-time #dt2 [startAt]="mydate"></owl-date-time>
+              </i>
+            </span>
+          </div>
+        </div>
+   
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    &nbsp;  &nbsp;   &nbsp;  &nbsp; 
+    <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+    <button type="button" class="btn btn-outline-dark ml-1" mat-dialog-close><i class="fa fa-close"></i> Close</button>
+  </div>
+
+  
+
+
+</div>
+
+
+</form>

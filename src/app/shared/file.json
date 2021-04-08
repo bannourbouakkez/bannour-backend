@@ -1,0 +1,48 @@
+{
+    "PeriodeID": 45,
+    "user_id": null,
+    "start": "2021-05-01",
+    "end": "2021-05-10",
+    "isNotDeleted": 1,
+    "created_at": null,
+    "updated_at": null,
+    "DateID": 44,
+    "periode_id": 45,
+    "date": "2021-04-08",
+    "haveSessionFromYesterday": 0,
+    "SessionID": 11,
+    "date_id": 44,
+    "timeStart": "2021-04-14 01:08:00",
+    "timeEnd": "2021-04-15 01:08:00",
+    "ClientSessionID": null,
+    "session_id": null,
+    "dates": [
+        {
+            "DateID": 44,
+            "periode_id": 45,
+            "date": "2021-04-08",
+            "haveSessionFromYesterday": 0,
+            "isNotDeleted": 1,
+            "created_at": "2021-04-03T15:22:08.000000Z",
+            "updated_at": "2021-04-03T15:22:08.000000Z"
+        },
+        {
+            "DateID": 45,
+            "periode_id": 45,
+            "date": "2021-04-13",
+            "haveSessionFromYesterday": 0,
+            "isNotDeleted": 1,
+            "created_at": "2021-04-03T15:22:08.000000Z",
+            "updated_at": "2021-04-03T15:22:08.000000Z"
+        },
+        {
+            "DateID": 46,
+            "periode_id": 45,
+            "date": "2021-04-24",
+            "haveSessionFromYesterday": 0,
+            "isNotDeleted": 1,
+            "created_at": "2021-04-03T15:22:08.000000Z",
+            "updated_at": "2021-04-03T15:22:08.000000Z"
+        }
+    ]
+}

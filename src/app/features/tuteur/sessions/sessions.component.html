@@ -1,0 +1,14 @@
+
+<ng-container *ngIf="sessions.length>0">
+    <div *ngFor="let s of sessions;">{{s.timeStart}} -> {{s.timeEnd}}</div>
+</ng-container>
+
+<ng-container *ngIf="!(DateID>0) && sessions.length==0">
+   <br>
+   Select Periode & Date 
+</ng-container>
+
+
+ <ng-container *ngIf="DateID>0 && sessions.length==0">
+    no sessions 
+  </ng-container>

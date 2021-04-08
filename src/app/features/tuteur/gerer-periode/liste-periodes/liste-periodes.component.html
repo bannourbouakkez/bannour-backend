@@ -1,0 +1,48 @@
+
+<ng-container *ngIf="!load">
+<div class="container">
+    Loading ...
+</div>
+</ng-container>
+
+<ng-container *ngIf="load">
+  
+  
+           <div class="container">
+               <h3>Liste Periodes </h3>
+           </div>
+
+   <div *ngFor="let periode of periodes;let i=index;">
+
+       <div class="container">
+        <!--<h3>#{{periode.PeriodeID}}</h3>-->
+        <div class="list-group">
+          <span class="list-group-item">
+              <h3> #{{periode.PeriodeID}} [ {{periode.start}} -> {{periode.end}} ] </h3>
+
+               
+               <span class="list-group-item" *ngFor="let date of periode.dates">
+                &nbsp; &nbsp; #{{date.DateID}} {{date.date}}
+               </span>
+
+               <br>
+               <a class="btn btn-sm btn-success text-white" (click)="addOrEditPeriode(periode.PeriodeID,i)">Modifier</a>
+               &nbsp; &nbsp;
+               <a class="btn btn-sm btn-danger text-white" (click)="deletePeriode(periode.PeriodeID,i)">Suprimer</a>
+               
+          </span>
+        </div>
+        <br>
+      </div>
+
+     
+   </div>
+   <div class="container">
+    <br><br>
+    <a class="btn btn-sm btn-success text-white" (click)="addOrEditPeriode(0,0)">+ Ajouter Periode</a>
+    <br><br>
+</div>
+
+
+</ng-container>
+

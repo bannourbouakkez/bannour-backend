@@ -1,0 +1,51 @@
+<div class="container">
+    <br><br>
+    <h2>Reserver session  </h2>
+    <br>
+
+<form [formGroup]="form"  autocomplete="off">
+
+    <div class="col-md-12 col-xlg-6">
+        <div class="row">
+          <div class="col-md-5">
+
+            <div class="form-group">
+                <label>Select Periode </label>
+                </div>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [formGroup]="form" [rangePicker]="picker">
+            <input matStartDate formControlName="start" placeholder="Start date" (dateChange)="setTimeStart($event)" >
+            <input matEndDate formControlName="end" placeholder="End date" (dateChange)="setTimeEnd($event)">
+         
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+
+    </div>
+  
+
+    
+
+
+    <div class="col-md-8">
+        <div class="form-group">
+          <label>Tuteur</label>
+          <select formControlName="TuteurID" (change)="selectTuteur($any($event))" class="form-control">
+            <option *ngFor="let tuteur of tuteurs" [value]="tuteur.id">{{tuteur.name}}</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+    </div>
+  
+        <app-sessions [TuteurID]="form.get('TuteurID').value" [start]="form.get('start').value" [end]="form.get('end').value"></app-sessions>
+    
+</form>
+
+</div>
+
+

@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Menu</h2>
+
+    <div class="list-group">
+
+      <a href="#" class="list-group-item" [routerLink]="['/home']">Home</a>
+
+        <ng-container *ngIf="_authService.isTuteur()">
+        <a href="#" class="list-group-item" [routerLink]="['/tuteur/periodes']">Gerer Periodes</a>
+        <a href="#" class="list-group-item" [routerLink]="['/tuteur/addsession']">Gerer Sessions</a>
+        </ng-container>
+
+        <ng-container *ngIf="_authService.isClient()">
+        <a href="#" class="list-group-item" [routerLink]="['/client/reservation']">Reservation</a>
+        </ng-container>
+     
+    </div>
+
+    <br><br>
+
+    <button type="button" class="btn btn-default" *ngIf="_authService.loggedIn()" [routerLink]="['/logout']" (click)="logoutUser()">Logout</button>
+
+
+  </div>

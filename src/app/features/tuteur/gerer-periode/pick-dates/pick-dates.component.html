@@ -1,0 +1,24 @@
+<mat-form-field>
+    <mat-chip-list #chipList aria-label="Choose a date"
+      (click)="picker.open()">
+      <mat-chip 
+        *ngFor="let value of model"
+        (click)="alert(value)"
+        [selectable]="false"
+        [removable]="true"
+        (removed)="remove(value)">
+        {{ value | date }}
+        <mat-icon matChipRemove *ngIf="true">X</mat-icon>
+      </mat-chip>
+      <input [value]="resetModel" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Choose a date"
+             (dateChange)="dateChanged($event)"
+             [matChipInputFor]="chipList" hidden />
+    </mat-chip-list>
+    <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker [startAt]="init" [dateClass]="dateClass"></mat-datepicker>
+  </mat-form-field>
+  
+  
+  <!-- Copyright 2019 Google LLC. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license -->

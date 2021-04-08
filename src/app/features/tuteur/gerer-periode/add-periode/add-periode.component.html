@@ -1,0 +1,116 @@
+<ng-container *ngIf="!periodeLoaded">
+    ...
+</ng-container>
+
+<ng-container *ngIf="periodeLoaded">
+<div class="row">
+    <div class="col-md-5">
+        
+<mat-form-field appearance="fill">
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+        <input matStartDate formControlName="start" placeholder="Start date" (dateChange)="setTimeStart($event)" >
+        <input matEndDate formControlName="end" placeholder="End date" (dateChange)="setTimeEnd($event)">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+    
+    <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+    <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+    
+</mat-form-field>
+    </div>
+
+
+<div class="col-md-2">
+    
+<form [formGroup]="formDate" class="form-horizontal" role="form" autocomplete="off" width="100%">
+    <div class="input-group date  p-1-0">
+        <input [min]="range.get('start').value" [max]="range.get('end').value"
+        type="hidden" class='form-control input-sm' [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4"
+            formControlName="date" [(ngModel)]="date" (dateTimeInput)="pickDate($event)" readonly>
+        <span class="trigger" [owlDateTimeTrigger]="dt4">
+            <a class="btn btn-sm btn-success text-white"> + Ajoueter Date</a>
+        </span>
+        <owl-date-time [pickerType]="'calendar'" #dt4></owl-date-time>
+    </div>
+</form>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div>
+    <span *ngFor="let date of dates;let i=index;">
+        <button  type="button" class="btn btn-primary">{{date.date}} &nbsp; &nbsp;  <span (click)="deleteDate(date.DateID,i)" class="badge" style="background-color: red;">X</span>  </button>
+        &nbsp; &nbsp; 
+
+    </span>
+</div>
+
+<br>
+
+
+<br>
+
+<button (click)="submit()" class="btn btn-dark"><i class="fa fa-database"></i> Envoyer </button>
+
+
+</ng-container>
+
+
+
+
+
+
+<!--
+<app-pick-dates [minDate]="range.value.start" [maxDate]="range.value.end" [ldates]="ldates" (action)="Action($event)"></app-pick-dates>
+-->
+
+
+
+
+
+<!--
+<form [formGroup]="formDate" class="form-horizontal" role="form" autocomplete="off" width="100%">
+<div class="input-group date  p-1-0" >
+    <input class='form-control input-sm' [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4"
+    formControlName="date" [(ngModel)]="date" (dateTimeInput)="updateCalcs($event)" readonly>
+    <owl-date-time [pickerType]="'calendar'" #dt4></owl-date-time>
+    <div class="input-group-append">
+      <span class="input-group-text">
+        <i class='icon-container'>
+         D
+        </i>
+      </span>
+    </div>
+  </div>
+</form>
+-->
+
+
+
+<!--
+[owlDateTimeFilter]="myFilter"
+<br>
+<div class="example-wrapper">
+    <h2>Filter Restriction</h2>
+
+    <label class="example-input-wrapper">
+        Date Time:
+        <input placeholder="Date Time:"
+               [(ngModel)]="dateTime2"
+               [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2"
+               >
+        <owl-date-time [startAt]="startAt" #dt2></owl-date-time>
+    </label>
+
+    <h4>Value From Picker: {{dateTime2}}</h4>
+</div>
+<br>
+-->

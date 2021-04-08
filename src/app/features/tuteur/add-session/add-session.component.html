@@ -1,0 +1,48 @@
+<div class="container">
+  <br><br>
+  <h2>Ajouter session  </h2>
+  <br>
+
+<form [formGroup]="form"  autocomplete="off">
+<!--
+
+          <label>Choisissez la période</label>
+          <select formControlName="PeriodeID" (change)="selectPeriode($any($event))" >
+            <option *ngFor="let periode of periodes" [value]="periode.PeriodeID">[ {{periode.start}} -> {{periode.end}} ]</option>
+          </select>
+          <label>Choisissez la date</label>
+          <select formControlName="DateID" (change)="selectDate($any($event))">
+            <option *ngFor="let date of dates" [value]="date.DateID">{{date.date}}</option>
+          </select>
+        -->    
+
+  <div class="col-md-12 col-xlg-6">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Periode</label>
+        <select formControlName="PeriodeID" (change)="selectPeriode($any($event))" class="form-control" >
+          <option *ngFor="let periode of periodes" [value]="periode.PeriodeID">[ {{periode.start}} -> {{periode.end}} ]</option>
+        </select>
+        
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Date</label>
+        <select formControlName="DateID" (change)="selectDate($any($event))" class="form-control">
+          <option *ngFor="let date of dates" [value]="date.DateID">{{date.date}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <br>
+  <app-dialog-session [DateID]="form.get('DateID').value" ></app-dialog-session>
+
+</div>
+          
+          <!--<app-sessions [DateID]="form.get('DateID').value"></app-sessions>-->
+        
+          
+</form>
+</div>
